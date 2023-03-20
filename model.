@@ -1,0 +1,13 @@
+importar  mangusto  de  "mangusto" ;
+
+const  livroSchema  =  new  mangusto . Esquema ( {
+    id : { tipo : String } ,
+    título : { tipo : String ,  obrigatório : verdadeiro } ,
+    autor : { tipo : mangusto . Esquema . Tipos . ObjectId , ref : 'autores' ,  obrigatório : true } ,
+    editora : { type : String ,  obrigatório : true } ,
+    paginas : { type : Number }
+} ) ;
+
+const  livros  =  mangusto . modelo ( 'livros' ,  livroSchema ) ; 
+
+exportar  livros padrão  ;
