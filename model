@@ -1,0 +1,15 @@
+importar  mangusto  de  "mangusto" ;
+
+    const  autorSchema  =  new  mangusto . Esquema ( {
+        id : { tipo : String } ,
+        nome : { tipo : String ,  obrigatório : verdadeiro } ,
+        nacionalidade : { tipo : String } ,
+
+    } ,
+    {
+        versionKey : false
+} ) ;
+
+const  autores  =  mangusto . modelo ( "autores" ,  autorSchema ) ;
+
+exportar  autores padrão  ;
