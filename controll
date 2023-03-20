@@ -1,0 +1,50 @@
+importar  autores  de  "../models/Autor.js"
+
+classe  AutorController  {
+    static  listarAutor  =  ( req , res )  =>  {
+        autores . encontrar ( ( err ,  autores )  => {
+            res . estado ( 200 ) . json ( autores )
+        } )
+    }
+    static  listarAutorPorID  =  ( req , res )  =>  {
+        const  id  =  req . parâmetros . identificação ;
+        autores . findById ( id , ( err ,  autores )  => {
+            se ( err )
+                res . estado ( 400 ) . send ( { mensagem : "Autor não encontrado" } ) ;
+            outro
+                res . estado ( 200 ) . json ( autores ) ;
+        } )
+    }
+
+    static  cadastrarAutor  =  ( req , res )  =>  {
+        const  autor  =  novos  autores ( req . corpo ) ;
+        autor . salve ( ( erro )  =>  {
+            if ( err ) {
+                res . estado ( 500 ) . send ( { message : ` ${ err . message } - falha ao cadastrar o autor` } ) ;
+            } 
+
+            res . estado ( 201 ) . enviar ( autor.paraJSON ( ) ) ; _ _ 
+        } )
+    }
+
+    static  atualizarAutor  =  ( req , res )  =>  {
+        const  id  =  req . parâmetros . identificação ;
+        autores . findByIdAndUpdate ( id ,  { $set : req . body } ,  ( err )  =>  {
+            se ( ! errar )
+                res . estado ( 200 ) . send ( { message : "Autor Atualizado com sucesso" } )
+            outro
+            res . estado ( 500 ) . send ( { message : "Autor não atualizado " } )
+        } )
+    }
+    static  excluirAutor  =  ( req , res )  =>  {
+        const  id  =  req . parâmetros . identificação ;
+        autores . findByIdAndDelete ( id ,  { $set : req . body } ,  ( err )  =>  {
+            se ( ! errar )
+                res . estado ( 200 ) . send ( { message : "Autor deletado com sucesso" } )
+            outro
+            res . estado ( 500 ) . send ( { mensagem : "Autor não deletado" } )
+        } )
+    }
+}
+
+exportar  AutoController padrão  ;
