@@ -1,0 +1,7 @@
+importar  mangusto  de  "mangusto" ;
+
+mangusto . conectar ( "mongodb+srv://juan:mongodb@livraria.swxfdyn.mongodb.net/livraria_nodeJS" ) ;
+
+const  db  =  mangusto . conexão ;
+
+exportar  banco de dados padrão  ;
