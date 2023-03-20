@@ -1,0 +1,44 @@
+importar  expresso  de  "expresso" ;
+importar  AutoresController  de  "../controllers/autoresController.js" ;
+
+ roteador  const =  expresso . Roteador ( ) ;
+
+roteador
+    . get ( "/autores" ,  AutoresController . listarAutor )
+    . get ( "/autores/:id" ,  AutoresController . listarAutorPorID )
+    . post ( "/autores" ,  AutoresController . cadastrarAutor )
+    . put ( "/autores/:id" ,  AutoresController . atualizarAutor )
+    . delete ( "/autores/:id" ,  AutoresController . excluirAutor )
+
+exportar  roteador padrão  ;
+importar  expresso  de  "expresso" ;
+importar  autores  de  "./autoresRoutes.js" ;
+importar  livros  de  "./livrosRoutes.js" ;
+
+ rotas  const =  ( aplicativo )  =>  {
+    app . rota ( '/' ) . get ( ( req , res )  =>  {
+        res . estado ( 200 ) . send ( { titulo : 'Curso de node' } ) ;
+    } ) ;
+
+    app . usar (
+        expresso . json ( ) ,
+        livros ,
+        autores
+    )
+}
+
+exportar  rotas padrão  ;
+importar  expresso  de  "expresso" ;
+importar  LivroController  de  "../controllers/livrosController.js" ;
+
+ roteador  const =  expresso . Roteador ( ) ;
+
+roteador
+    . get ( "/livros" ,  LivroController . listarLivros )
+    . get ( "/livros/busca" ,  LivroController . listarLivroPorEditora )
+    . get ( "/livros/:id" ,  LivroController . listarLivrosPorID )
+    . post ( "/livros" ,  LivroController . cadastrarLivro )
+    . put ( "/livros/:id" ,  LivroController . atualizarLivro )
+    . delete ( "/livros/:id" ,  LivroController . excluirLivro )
+
+exportar  roteador padrão  ;
